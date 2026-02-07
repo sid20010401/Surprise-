@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Be My Valentine 💖</title>
+  <title>Shweta ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
@@ -12,7 +13,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       overflow: hidden;
     }
 
@@ -32,7 +33,6 @@
 
     p {
       color: #555;
-      font-size: 16px;
     }
 
     .buttons {
@@ -42,13 +42,13 @@
     }
 
     button {
-      padding: 12px 20px;
+      padding: 12px 22px;
       font-size: 16px;
       border: none;
       border-radius: 25px;
       cursor: pointer;
       position: absolute;
-      transition: all 0.3s ease;
+      transition: 0.3s ease;
     }
 
     #yes {
@@ -59,64 +59,59 @@
 
     #no {
       background: #ccc;
-      color: black;
       right: 20px;
     }
 
     .heart {
       position: absolute;
+      bottom: -20px;
       font-size: 20px;
       animation: float 4s linear infinite;
-      opacity: 0.7;
     }
 
     @keyframes float {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-100vh) scale(1.5);
+      to {
+        transform: translateY(-110vh);
         opacity: 0;
       }
     }
   </style>
 </head>
+
 <body>
 
   <div class="card">
-    <h1>Hey You 💖</h1>
+    <h1>Hey Shweta ❤️</h1>
     <p>
-      Life is better with you.  
-      My days are brighter, my heart is fuller…  
-      So I have just one question 😌
+      Ever since you came into my life,<br>
+      everything feels brighter ✨
     </p>
     <h2>Will you be my Valentine? 🌹</h2>
 
     <div class="buttons">
-      <button id="yes" onclick="yesClicked()">Yes 💘</button>
+      <button id="yes" onclick="yes()">Yes 💖</button>
       <button id="no">No 🙈</button>
     </div>
   </div>
 
   <script>
-    const noBtn = document.getElementById("no");
+    const no = document.getElementById("no");
 
-    noBtn.addEventListener("mouseover", moveButton);
-    noBtn.addEventListener("click", moveButton);
+    no.addEventListener("mouseover", () => {
+      no.style.transform =
+        `translate(${Math.random()*150-75}px, ${Math.random()*80-40}px)`;
+    });
 
-    function moveButton() {
-      const x = Math.random() * 200 - 100;
-      const y = Math.random() * 100 - 50;
-      noBtn.style.transform = `translate(${x}px, ${y}px)`;
-    }
-
-    function yesClicked() {
+    function yes() {
       document.body.innerHTML = `
         <div style="text-align:center;color:white;">
-          <h1 style="font-size:40px;">YAYYY 💖🥹</h1>
-          <p style="font-size:20px;">Best decision ever.</p>
-          <p style="font-size:18px;">I promise to make this Valentine unforgettable 🌹✨</p>
+          <h1 style="font-size:40px;">YAY Shweta 🥹💖</h1>
+          <p style="font-size:20px;">
+            You just made me the happiest person ever.
+          </p>
+          <p style="font-size:18px;">
+            I promise to make this Valentine unforgettable 🌹✨
+          </p>
         </div>
       `;
     }
@@ -125,10 +120,8 @@
       const heart = document.createElement("div");
       heart.className = "heart";
       heart.innerHTML = "💖";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.bottom = "-20px";
+      heart.style.left = Math.random()*100 + "vw";
       document.body.appendChild(heart);
-
       setTimeout(() => heart.remove(), 4000);
     }, 300);
   </script>
